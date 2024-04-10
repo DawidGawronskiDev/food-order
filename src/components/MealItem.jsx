@@ -1,3 +1,5 @@
+import MealItemButton from "./MealItemButton";
+
 export default function MealItem({ meal }) {
   return (
     <li className="meal-item">
@@ -7,9 +9,7 @@ export default function MealItem({ meal }) {
         <span className="meal-item-price">$ {meal.price}</span>
         <span className="meal-item-description">{meal.description}</span>
         <div className="meal-item-actions">
-          <button type="button" className="button">
-            Add to cart
-          </button>
+          <MealItemButton item={meal} />
         </div>
       </article>
     </li>
