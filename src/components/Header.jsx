@@ -1,3 +1,4 @@
+import CartButton from "./CartButton";
 import Logo from "/logo.jpg";
 
 export default function Header() {
@@ -7,6 +8,7 @@ export default function Header() {
         <img src={Logo} alt="Logo" />
         <h1>React food</h1>
       </div>
+      <CartButton />
     </header>
   );
 }
