@@ -1,9 +1,18 @@
+import Header from "./components/Header";
+import Meals from "./components/Meals";
+import useFetch from "./hooks/useFetch";
+
 function App() {
+  const { data, error, isLoading } = useFetch("http://localhost:3000/meals");
+
+  if (isLoading) {
+    return <span>Loading...</span>;
+  }
+
   return (
     <>
-      <h1>You got this 💪</h1>
-      <p>Stuck? Not sure how to proceed?</p>
-      <p>Don't worry - we've all been there. Let's build it together!</p>
+      <Header />
+      {isLoading ? <span>Loading...</span> : <Meals meals={data} />}
     </>
   );
 }
