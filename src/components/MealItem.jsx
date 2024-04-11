@@ -1,6 +1,11 @@
-import MealItemButton from "./MealItemButton";
+import Button from "./UI/Button";
+
+import { useContext } from "react";
+import { CartContext } from "../store/CartContextProvider";
 
 export default function MealItem({ meal }) {
+  const { handleCartItems } = useContext(CartContext);
+
   return (
     <li className="meal-item">
       <article>
@@ -9,7 +14,7 @@ export default function MealItem({ meal }) {
         <span className="meal-item-price">$ {meal.price}</span>
         <span className="meal-item-description">{meal.description}</span>
         <div className="meal-item-actions">
-          <MealItemButton item={meal} />
+          <Button onClick={() => handleCartItems(meal)}>Add to cart</Button>
         </div>
       </article>
     </li>
