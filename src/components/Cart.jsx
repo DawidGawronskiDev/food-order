@@ -2,6 +2,7 @@ import Modal from "./UI/Modal";
 
 import { useContext } from "react";
 import { CartContext } from "../store/CartContextProvider";
+import Button from "./UI/Button";
 
 export default function Cart() {
   const cartCtx = useContext(CartContext);
@@ -22,6 +23,10 @@ export default function Cart() {
         ))}
       </ul>
       <p className="cart-total">$ {cartTotal}</p>
+      <p className="cart-actions">
+        <Button textOnly>Close</Button>
+        <Button>Go to checkout</Button>
+      </p>
     </Modal>
   );
 }
