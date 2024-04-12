@@ -3,11 +3,13 @@ import Modal from "./UI/Modal";
 import { useContext } from "react";
 import { CartContext } from "../store/CartContextProvider";
 import Button from "./UI/Button";
+import { UserProgressContext } from "../store/UserProgressProvider";
 
 export default function Cart() {
   const cartCtx = useContext(CartContext);
+  const userProgressCtx = useContext(UserProgressContext);
 
-  console.log(cartCtx);
+  console.log(userProgressCtx);
 
   const cartTotal = cartCtx.cart.items.reduce(
     (acc, curr) => acc + curr.quantity * curr.price,
@@ -15,7 +17,7 @@ export default function Cart() {
   );
 
   return (
-    <Modal open className="cart">
+    <Modal open={userProgressCtx.progress === "cart"} className="cart">
       <h2>My Cart</h2>
       <ul>
         {cartCtx.cart.items.map((item) => (
