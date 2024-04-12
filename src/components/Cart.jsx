@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { CartContext } from "../store/CartContextProvider";
 import Button from "./UI/Button";
 import { UserProgressContext } from "../store/UserProgressProvider";
+import CartItem from "./CartItem";
 
 export default function Cart() {
   const cartCtx = useContext(CartContext);
@@ -27,9 +28,7 @@ export default function Cart() {
       <h2>My Cart</h2>
       <ul>
         {cartCtx.cart.items.map((item) => (
-          <li key={item.id}>
-            {item.name} - {item.quantity}
-          </li>
+          <CartItem key={item.id} item={item} />
         ))}
       </ul>
       <p className="cart-total">$ {cartTotal}</p>
